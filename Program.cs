@@ -18,10 +18,11 @@ namespace TicTacToeApplication
             PrintBoard(ticTacToeBoard);
 
             bool gameOver = false;
+            int playerNumber = 1;
             while (!gameOver)
             {
                 // get user input
-                Console.WriteLine("What's your move?");
+                Console.WriteLine("Player {0}, what's your move?", playerNumber);
                 Console.WriteLine("Give your answer as two numbers separated by a comma.");
                 Console.WriteLine("Enter END to stop.");
                 string input = Console.ReadLine();
@@ -38,10 +39,16 @@ namespace TicTacToeApplication
                     int y = Convert.ToInt32(coordinates[1]);
 
                     // set the chosen square to 1
-                    ticTacToeBoard[x][y] = 1;
+                    ticTacToeBoard[x][y] = playerNumber;
 
                     // print out the new state of the board
                     PrintBoard(ticTacToeBoard);
+
+                    // move to next player
+                    playerNumber++;
+                    if (playerNumber > 2) {
+                        playerNumber = 1;
+                    }
                 }
             }
         }

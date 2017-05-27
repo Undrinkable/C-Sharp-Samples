@@ -6,10 +6,14 @@ namespace TicTacToeApplication
     {
         static void Main(string[] args)
         {
-            TicTacToeBoard ticTacToeBoard = new TicTacToeBoard();
-
             Console.WriteLine("Welcome to Tic Tac Toe!");
             Console.WriteLine();
+            Console.WriteLine("Player 1, what's your name?");
+            string player1Name = Console.ReadLine();
+            Console.WriteLine("Player 2, what's your name?");
+            string player2Name = Console.ReadLine();
+
+            TicTacToeBoard ticTacToeBoard = new TicTacToeBoard(player1Name, player2Name);
 
             ticTacToeBoard.PrintBoard();
 

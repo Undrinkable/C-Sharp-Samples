@@ -26,7 +26,7 @@ namespace TicTacToeApplication
                 Console.WriteLine("Enter END to stop.");
                 string input = Console.ReadLine();
 
-                if (input == "END")
+                if (input == "END" || input.Length == 0)
                 {
                     gameOver = true;
                 }
@@ -34,19 +34,27 @@ namespace TicTacToeApplication
                 {
                     // convert user input into tic tac toe board coordinates
                     string[] coordinates = input.Split(',');
-                    int x = Convert.ToInt32(coordinates[0]);
-                    int y = Convert.ToInt32(coordinates[1]);
+                    if (coordinates.Length == 2)
+                    {
+                        int x = Convert.ToInt32(coordinates[0]);
+                        int y = Convert.ToInt32(coordinates[1]);
 
-                    // set the chosen square to the play number
-                    ticTacToeBoard.AddPlayerMove(x, y);
+                        // set the chosen square to the play number
+                        ticTacToeBoard.AddPlayerMove(x, y);
 
-                    // print out the new state of the board
-                    ticTacToeBoard.PrintBoard();
+                        // print out the new state of the board
+                        ticTacToeBoard.PrintBoard();
 
-                    string winner = ticTacToeBoard.FindWinner();
-                    if (winner != null) {
-                        Console.WriteLine(winner + " won!");
-                        gameOver = true;
+                        string winner = ticTacToeBoard.FindWinner();
+                        if (winner != null)
+                        {
+                            Console.WriteLine(winner + " won!");
+                            gameOver = true;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Give your answer as two numbers separated by a comma.");
                     }
                 }
             }

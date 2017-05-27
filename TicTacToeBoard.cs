@@ -143,15 +143,17 @@ public class TicTacToeBoard
 
     public void PrintBoard()
     {
-        Console.WriteLine(" ------------- ");
+        Console.WriteLine("  y-0---1---2-- ");
+        Console.WriteLine("x ------------- ");
         for (int x = 0; x < _board.Length; x++)
         {
+            Console.Write(x);
             for (int y = 0; y < _board[0].Length; y++)
             {
                 Console.Write(" | " + GetPlayerSymbol(_board[x][y]));
             }
             Console.WriteLine(" | ");
-            Console.WriteLine(" ------------- ");
+            Console.WriteLine("| ------------- ");
         }
     }
     private string GetPlayerSymbol(int playerNumber)

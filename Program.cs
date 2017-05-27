@@ -6,16 +6,12 @@ namespace TicTacToeApplication
     {
         static void Main(string[] args)
         {
-            int[][] ticTacToeBoard = new int[3][];
-            for (int index = 0; index < ticTacToeBoard.Length; index++)
-            {
-                ticTacToeBoard[index] = new int[3];
-            }
+            TicTacToeBoard ticTacToeBoard = new TicTacToeBoard();
 
             Console.WriteLine("Welcome to Tic Tac Toe!");
             Console.WriteLine();
 
-            PrintBoard(ticTacToeBoard);
+            ticTacToeBoard.PrintBoard();
 
             bool gameOver = false;
             int playerNumber = 1;
@@ -38,33 +34,20 @@ namespace TicTacToeApplication
                     int x = Convert.ToInt32(coordinates[0]);
                     int y = Convert.ToInt32(coordinates[1]);
 
-                    // set the chosen square to 1
-                    ticTacToeBoard[x][y] = playerNumber;
+                    // set the chosen square to the play number
+                    ticTacToeBoard._board[x][y] = playerNumber;
 
                     // print out the new state of the board
-                    PrintBoard(ticTacToeBoard);
+                    ticTacToeBoard.PrintBoard();
 
                     // move to next player
                     playerNumber++;
-                    if (playerNumber > 2) {
+                    if (playerNumber > 2)
+                    {
                         playerNumber = 1;
                     }
                 }
             }
-        }
-
-        private static void PrintBoard(int[][] board)
-        {
-            Console.WriteLine(" ------------- ");
-            for (int x = 0; x < board.Length; x++)
-            {
-                for (int y = 0; y < board[0].Length; y++)
-                {
-                    Console.Write(" | " + board[x][y]);
-                }
-                Console.WriteLine(" | ");
-            }
-            Console.WriteLine(" ------------- ");
         }
     }
 }

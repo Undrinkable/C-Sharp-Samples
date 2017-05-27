@@ -1,8 +1,0 @@
-/home/hannah/catfactsapp/bin/Debug/netcoreapp1.1/catfactsapp.deps.json
-/home/hannah/catfactsapp/bin/Debug/netcoreapp1.1/catfactsapp.runtimeconfig.json
-/home/hannah/catfactsapp/bin/Debug/netcoreapp1.1/catfactsapp.runtimeconfig.dev.json
-/home/hannah/catfactsapp/bin/Debug/netcoreapp1.1/catfactsapp.dll
-/home/hannah/catfactsapp/bin/Debug/netcoreapp1.1/catfactsapp.pdb
-/home/hannah/catfactsapp/obj/Debug/netcoreapp1.1/catfactsapp.AssemblyInfo.cs
-/home/hannah/catfactsapp/obj/Debug/netcoreapp1.1/catfactsapp.dll
-/home/hannah/catfactsapp/obj/Debug/netcoreapp1.1/catfactsapp.pdb

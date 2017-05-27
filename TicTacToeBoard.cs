@@ -19,10 +19,19 @@ public class TicTacToeBoard
         _playerNumber = 1;
     }
 
-    public string GetCurrentPlayerName() {
-        if (_playerNumber == 1) {
+    public string GetCurrentPlayerName()
+    {
+        return GetPlayerName(_playerNumber);
+    }
+
+    private string GetPlayerName(int playerNumber)
+    {
+        if (playerNumber == 1)
+        {
             return _player1Name;
-        } else {
+        }
+        else
+        {
             return _player2Name;
         }
     }
@@ -35,6 +44,100 @@ public class TicTacToeBoard
         if (_playerNumber > 2)
         {
             _playerNumber = 1;
+        }
+    }
+
+    public string FindWinner()
+    {
+        int winnerPlayerNumber = -1;
+
+        int index = 0;
+        while (winnerPlayerNumber == -1 && index < _board.Length)
+        {
+            winnerPlayerNumber = xWinner(index);
+            index++;
+        }
+
+        index = 0;
+        while (winnerPlayerNumber == -1 && index < _board.Length)
+        {
+            winnerPlayerNumber = yWinner(index);
+            index++;
+        }
+
+        if (winnerPlayerNumber == -1)
+        {
+            winnerPlayerNumber = downDiagonalWinner();
+        }
+
+        if (winnerPlayerNumber == -1)
+        {
+            winnerPlayerNumber = upDiagonalWinner();
+        }
+
+        if (winnerPlayerNumber != -1)
+        {
+            return GetPlayerName(winnerPlayerNumber);
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    private int upDiagonalWinner()
+    {
+        if (_board[0][2] != 0
+            && _board[0][2] == _board[1][1]
+            && _board[0][2] == _board[2][0])
+        {
+            return _board[0][2];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    private int downDiagonalWinner()
+    {
+        if (_board[0][0] != 0
+            && _board[0][0] == _board[1][1]
+            && _board[0][0] == _board[2][2])
+        {
+            return _board[0][0];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    private int xWinner(int index)
+    {
+        if (_board[index][0] != 0
+            && _board[index][0] == _board[index][1]
+            && _board[index][0] == _board[index][2])
+        {
+            return _board[index][0];
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    private int yWinner(int index)
+    {
+        if (_board[0][index] != 0
+            && _board[0][index] == _board[1][index]
+            && _board[0][index] == _board[2][index])
+        {
+            return _board[0][index];
+        }
+        else
+        {
+            return -1;
         }
     }
 

@@ -42,8 +42,16 @@ namespace TicTacToeApplication
 
                     // print out the new state of the board
                     ticTacToeBoard.PrintBoard();
+
+                    string winner = ticTacToeBoard.FindWinner();
+                    if (winner != null) {
+                        Console.WriteLine(winner + " won!");
+                        gameOver = true;
+                    }
                 }
             }
+
+            Console.ReadKey();
         }
     }
 }

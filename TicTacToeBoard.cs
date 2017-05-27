@@ -24,7 +24,6 @@ public class TicTacToeBoard
             Console.WriteLine(" | ");
             Console.WriteLine(" ------------- ");
         }
-        Console.WriteLine(" ------------- ");
     }
     private string GetPlayerSymbol(int playerNumber)
     {

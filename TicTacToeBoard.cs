@@ -1,7 +1,8 @@
 using System;
 public class TicTacToeBoard
 {
-    public int[][] _board;
+    private int[][] _board;
+    private int playerNumber;
 
     public TicTacToeBoard()
     {
@@ -9,6 +10,23 @@ public class TicTacToeBoard
         for (int index = 0; index < _board.Length; index++)
         {
             _board[index] = new int[3];
+        }
+
+        playerNumber = 1;
+    }
+
+    public string GetCurrentPlayerName() {
+        return "Player " + playerNumber;
+    }
+
+    public void AddPlayerMove(int x, int y)
+    {
+        _board[x][y] = playerNumber;
+
+        playerNumber++;
+        if (playerNumber > 2)
+        {
+            playerNumber = 1;
         }
     }
 
@@ -27,11 +45,16 @@ public class TicTacToeBoard
     }
     private string GetPlayerSymbol(int playerNumber)
     {
-        if (playerNumber == 1) {
+        if (playerNumber == 1)
+        {
             return "x";
-        } else if (playerNumber == 2) {
+        }
+        else if (playerNumber == 2)
+        {
             return "o";
-        } else {
+        }
+        else
+        {
             return " ";
         }
     }

@@ -19,10 +19,21 @@ public class TicTacToeBoard
         {
             for (int y = 0; y < _board[0].Length; y++)
             {
-                Console.Write(" | " + _board[x][y]);
+                Console.Write(" | " + GetPlayerSymbol(_board[x][y]));
             }
             Console.WriteLine(" | ");
+            Console.WriteLine(" ------------- ");
         }
         Console.WriteLine(" ------------- ");
+    }
+    private string GetPlayerSymbol(int playerNumber)
+    {
+        if (playerNumber == 1) {
+            return "x";
+        } else if (playerNumber == 2) {
+            return "o";
+        } else {
+            return " ";
+        }
     }
 }

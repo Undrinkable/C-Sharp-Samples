@@ -156,7 +156,7 @@ public class TicTacToeBoard
             Console.WriteLine("| ------------- ");
         }
     }
-    private string GetPlayerSymbol(int playerNumber)
+    protected virtual string GetPlayerSymbol(int playerNumber)
     {
         if (playerNumber == 1)
         {

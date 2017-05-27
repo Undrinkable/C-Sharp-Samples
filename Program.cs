@@ -13,7 +13,7 @@ namespace TicTacToeApplication
             Console.WriteLine("Player 2, what's your name?");
             string player2Name = Console.ReadLine();
 
-            TicTacToeBoard ticTacToeBoard = new TicTacToeBoard(player1Name, player2Name);
+            TicTacToeBoard ticTacToeBoard = new EmojiTicTacToeBoard(player1Name, player2Name);
 
             ticTacToeBoard.PrintBoard();
 
@@ -56,10 +56,10 @@ namespace TicTacToeApplication
                     {
                         Console.WriteLine("Give your answer as two numbers separated by a comma.");
                     }
+                    Console.ReadKey();                    
                 }
             }
 
-            Console.ReadKey();
         }
     }
 }
